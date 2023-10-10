@@ -1,10 +1,8 @@
-# myapp
+# purrfect
 
-A new Flutter project.
+This is a mobile application(Flutter + Dart) for an easy pet care of Naga City pet owners.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
