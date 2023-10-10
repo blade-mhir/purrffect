@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:purrfect/app/vet-profile.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -132,23 +133,32 @@ class _MyHomePageState extends State<MyHomePage> {
 //The card widget will hold the insturctions on
 //veterinary and groomers.
 //The list tile is used to organize all the information of one clincic to make it easier to understand and see.
-
 class card extends StatelessWidget {
   const card({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.asset("assets/icons/VetPic.png"),
-      title: Text("KHO Veterinary"),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Text("Veterinary Clinic"), Text("Always Open 24/7")],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VetProfile(),
+          ),
+        );
+      },
+      child: ListTile(
+        leading: Image.asset("assets/icons/VetPic.png"),
+        title: Text("KHO Veterinary"),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Text("Veterinary Clinic"), Text("Always Open 24/7")],
+        ),
+        isThreeLine: true,
+        trailing: Image.asset("assets/icons/Stars.png"),
       ),
-      isThreeLine: true,
-      trailing: Image.asset("assets/icons/Stars.png"),
     );
   }
 }
