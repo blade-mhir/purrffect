@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "387385958695",
+    "project_id": "purrfect-f2e24",
+    "storage_bucket": "purrfect-f2e24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387385958695:android:bc12202a671d61cfd8c902",
+        "android_client_info": {
+          "package_name": "com.example.purrfect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6l_DmIH5NFDzxOtt5njxAn2FCgquiCzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
