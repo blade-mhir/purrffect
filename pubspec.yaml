@@ -81,6 +81,7 @@ flutter:
     - assets/app/images/purrfect_logo.png
     - assets/app/images/Ellipse 1.png
     - assets/app/images/vertex logo.png
+    - assets/app/images/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
