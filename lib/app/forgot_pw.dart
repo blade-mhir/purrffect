@@ -372,8 +372,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     ),
                                   ),
 
-
-
                                   // Sign-In Button
                                   GestureDetector(
                                     onTap: () {

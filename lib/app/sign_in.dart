@@ -292,10 +292,7 @@ class SignInState extends State<SignIn> {
                                             ),
                                             suffixIcon: hasInteractedEmail
                                                 ? (isEmailValid && isValidEmail(_emailController.text))
-                                                ? const Icon(
-                                              Icons.check,
-                                              color: Colors.green,
-                                            )
+                                                ? null  // Remove the check mark icon
                                                 : InkWell(
                                               onTap: () {
                                                 // Handle click on Info icon
@@ -306,7 +303,7 @@ class SignInState extends State<SignIn> {
                                                       contentPadding: const EdgeInsets.all(20.0),
                                                       shape: RoundedRectangleBorder(
                                                         borderRadius: BorderRadius.circular(21.0),
-                                                        side: const BorderSide(color: Color(0xefffb500), width: 5.0), // Set the border color here
+                                                        side: const BorderSide(color: Color(0xefffb500), width: 5.0),
                                                       ),
                                                       content: const Column(
                                                         mainAxisSize: MainAxisSize.min,
@@ -314,12 +311,12 @@ class SignInState extends State<SignIn> {
                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                         children: [
                                                           SizedBox(
-                                                            height: 20.0,  // Adjust the height as needed
+                                                            height: 20.0,
                                                             child: Text('Please enter a valid email address.'),
                                                           ),
-                                                          SizedBox(height: 5.0),  // Adjust the height as needed
+                                                          SizedBox(height: 5.0),
                                                           SizedBox(
-                                                            height: 18.0,  // Adjust the height as needed
+                                                            height: 18.0,
                                                             child: Center(
                                                               child: Text('e.g. (name@example.com)'),
                                                             ),
