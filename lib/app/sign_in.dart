@@ -233,73 +233,129 @@ class SignInState extends State<SignIn> {
                                   Container(
                                     width: 300 * swf,
                                     height: 43 * swf,
-                                    margin:
-                                        const EdgeInsets.fromLTRB(0, 11, 0, 5),
+                                    margin: const EdgeInsets.fromLTRB(0, 11, 0, 5),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.circular(21 * swf),
+                                      borderRadius: BorderRadius.circular(21 * swf),
                                       border: Border.all(
                                         color: hasInteractedEmail
-                                            ? (isEmailValid &&
-                                                    isValidEmail(
-                                                        _emailController.text))
-                                                ? const Color(0xffffd266)
-                                                : Colors.red
+                                            ? (isEmailValid && isValidEmail(_emailController.text))
+                                            ? const Color(0xffffd266)
+                                            : Colors.red
                                             : const Color(0xffffd266),
                                         width: 2,
                                       ),
                                     ),
-                                    child: TextFormField(
-                                      controller: _emailController,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          hasInteractedEmail = true;
-                                          isEmailValid = isValidEmail(value);
-                                        });
-                                      },
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Please Enter Your Email';
-                                        } else if (!isValidEmail(value)) {
-                                          return 'Please Enter a Valid Email';
-                                        }
-                                        return null;
-                                      },
-                                      decoration: InputDecoration(
-                                        hintText:
-                                            'Email', // Adjust the hintText accordingly
-                                        hintStyle: const TextStyle(
-                                          color: Color(0xff888888),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21 * swf),
-                                          borderSide: const BorderSide(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21 * swf),
-                                          borderSide: BorderSide(
-                                            color: hasInteractedEmail
-                                                ? (isEmailValid &&
-                                                        isValidEmail(
-                                                            _emailController
-                                                                .text))
+                                    child: Stack(
+                                      children: [
+                                        TextFormField(
+                                          controller: _emailController,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              hasInteractedEmail = true;
+                                              isEmailValid = isValidEmail(value);
+                                            });
+                                          },
+                                          validator: (value) {
+                                            if (value == null || value.isEmpty) {
+                                              return 'Please Enter Your Email';
+                                            } else if (!isValidEmail(value)) {
+                                              return 'Please Enter a Valid Email';
+                                            }
+                                            return null;
+                                          },
+                                          decoration: InputDecoration(
+                                            hintText: 'Email',
+                                            hintStyle: const TextStyle(
+                                              color: Color(0xff888888),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(21 * swf),
+                                              borderSide: const BorderSide(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(21 * swf),
+                                              borderSide: BorderSide(
+                                                color: hasInteractedEmail
+                                                    ? (isEmailValid && isValidEmail(_emailController.text))
                                                     ? const Color(0xffffd266)
                                                     : Colors.red
-                                                : const Color(0xffffd266),
-                                            width: 2,
+                                                    : const Color(0xffffd266),
+                                                width: 2,
+                                              ),
+                                            ),
+                                            contentPadding: const EdgeInsets.symmetric(
+                                              horizontal: 20,
+                                              vertical: 12,
+                                            ),
+                                            suffixIcon: hasInteractedEmail
+                                                ? (isEmailValid && isValidEmail(_emailController.text))
+                                                ? const Icon(
+                                              Icons.check,
+                                              color: Colors.green,
+                                            )
+                                                : InkWell(
+                                              onTap: () {
+                                                // Handle click on Info icon
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (BuildContext context) {
+                                                    return AlertDialog(
+                                                      contentPadding: const EdgeInsets.all(20.0),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(21.0),
+                                                        side: const BorderSide(color: Color(0xefffb500), width: 5.0), // Set the border color here
+                                                      ),
+                                                      content: const Column(
+                                                        mainAxisSize: MainAxisSize.min,
+                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 20.0,  // Adjust the height as needed
+                                                            child: Text('Please enter a valid email address.'),
+                                                          ),
+                                                          SizedBox(height: 5.0),  // Adjust the height as needed
+                                                          SizedBox(
+                                                            height: 18.0,  // Adjust the height as needed
+                                                            child: Center(
+                                                              child: Text('e.g. (name@example.com)'),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      actions: <Widget>[
+                                                        Center(
+                                                          child: ElevatedButton(
+                                                            style: ElevatedButton.styleFrom(
+                                                              backgroundColor: Colors.green,
+                                                              shape: RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius.circular(21.0),
+                                                              ),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(context).pop();
+                                                            },
+                                                            child: const Text('OK'),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              child: const Icon(
+                                                Icons.info,
+                                                color: Colors.red,
+                                                size: 20,
+                                              ),
+                                            )
+                                                : null,
                                           ),
                                         ),
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                          horizontal: 20,
-                                          vertical: 12,
-                                        ),
-                                      ),
+                                      ],
                                     ),
                                   ),
 

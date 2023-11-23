@@ -257,7 +257,6 @@ class SignUpState extends State<SignUp> {
                                 ),
                               ),
 
-
                               //Home Address Text Field
                               Container(
                                 width: 290 * swf,
@@ -319,50 +318,116 @@ class SignUpState extends State<SignUp> {
                                         : const Color(0xffffd266),
                                   ),
                                 ),
-                                child: TextFormField(
-                                  controller: _emailController,
-                                  keyboardType: TextInputType.emailAddress,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please Enter Your Email';
-                                    } else if (!isValidEmail(value)) {
-                                      return 'Please Enter a Valid Email';
-                                    }
-                                    return null;
-                                  },
-                                  decoration: InputDecoration(
-                                    hintText: 'Email Address*',
-                                    hintStyle: const TextStyle(
-                                      color: Color(0xff888888),
+                                child: Stack(
+                                  children: [
+                                    TextFormField(
+                                      controller: _emailController,
+                                      keyboardType: TextInputType.emailAddress,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please Enter Your Email';
+                                        } else if (!isValidEmail(value)) {
+                                          return 'Please Enter a Valid Email';
+                                        }
+                                        return null;
+                                      },
+                                      decoration: InputDecoration(
+                                        hintText: 'Email*',
+                                        hintStyle: const TextStyle(
+                                          color: Color(0xff888888),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(21 * swf),
+                                          borderSide: const BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(21 * swf),
+                                          borderSide: BorderSide(
+                                            color: hasInteractedEmail
+                                                ? (isEmailValid && isValidEmail(_emailController.text))
+                                                ? const Color(0xffffd266)
+                                                : Colors.red
+                                                : const Color(0xffffd266),
+                                            width: 3,
+                                          ),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          horizontal: 20,
+                                          vertical: 12,
+                                        ),
+                                      ),
+                                      onChanged: (value) {
+                                        setState(() {
+                                          hasInteractedEmail = true;
+                                          isEmailValid = isValidEmail(value);
+                                        });
+                                      },
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(21 * swf),
-                                      borderSide: const BorderSide(
-                                        color: Colors.white,
+                                    Visibility(
+                                      visible: hasInteractedEmail && !(isEmailValid && isValidEmail(_emailController.text)),
+                                      child: Positioned(
+                                        right: 13, // Adjust the position as needed
+                                        top: 11,  // Adjust the position as needed
+                                        child: InkWell(
+                                          onTap: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  contentPadding: const EdgeInsets.all(20.0),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(21.0),
+                                                    side: const BorderSide(color: Color(0xefffb500), width: 5.0), // Set the border color here
+                                                  ),
+                                                  content: const Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      SizedBox(
+                                                        height: 20.0,  // Adjust the height as needed
+                                                        child: Text('Please enter a valid email address.'),
+                                                      ),
+                                                      SizedBox(height: 5.0),  // Adjust the height as needed
+                                                      SizedBox(
+                                                        height: 18.0,  // Adjust the height as needed
+                                                        child: Center(
+                                                          child: Text('e.g. (name@example.com)'),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  actions: <Widget>[
+                                                    Center(
+                                                      child: ElevatedButton(
+                                                        style: ElevatedButton.styleFrom(
+                                                          backgroundColor: Colors.green,
+                                                          shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(21.0),
+                                                          ),
+                                                        ),
+                                                        onPressed: () {
+                                                          Navigator.of(context).pop();
+                                                        },
+                                                        child: const Text('OK'),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                          child: const Icon(
+                                            Icons.info,
+                                            color: Colors.red,
+                                            size: 20,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(21 * swf),
-                                      borderSide: BorderSide(
-                                        color: hasInteractedEmail
-                                            ? (isEmailValid && isValidEmail(_emailController.text))
-                                            ? const Color(0xffffd266)
-                                            : Colors.red
-                                            : const Color(0xffffd266),
-                                        width: 3,
-                                      ),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      horizontal: 20,
-                                      vertical: 12,
-                                    ),
-                                  ),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      hasInteractedEmail = true;
-                                      isEmailValid = isValidEmail(value);
-                                    });
-                                  },
+                                  ],
                                 ),
                               ),
 
