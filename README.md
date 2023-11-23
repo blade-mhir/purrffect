@@ -1,4 +1,4 @@
-# purr
+# purrfect
 
 A new Flutter project.
 

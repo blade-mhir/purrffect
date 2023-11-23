@@ -6,7 +6,7 @@ class ReviewContainer extends StatelessWidget {
   final String reviewerName;
   final String reviewText;
 
-  const ReviewContainer({super.key, 
+  const ReviewContainer({super.key,
     required this.imagePath,
     required this.reviewerName,
     required this.reviewText,

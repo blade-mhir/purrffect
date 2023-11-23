@@ -38,8 +38,6 @@ class _ToolbarItem extends StatelessWidget {
 }
 
 class BottomToolbar extends StatelessWidget {
-  const BottomToolbar({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,7 +45,7 @@ class BottomToolbar extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            offset: const Offset(6, 0),
+            offset: Offset(6, 0),
             blurRadius: 4,
             spreadRadius: 2,
             color: Colors.black.withOpacity(0.25),
