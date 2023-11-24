@@ -34,6 +34,7 @@ class SignUpState extends State<SignUp> {
   final _confirmPasswordController = TextEditingController();
   final _nameController = TextEditingController();
   final _addressController = TextEditingController();
+  final _mnumController = TextEditingController();
   final _usernameController = TextEditingController();
 
   @override
@@ -42,6 +43,7 @@ class SignUpState extends State<SignUp> {
     _passwordController.dispose();
     _nameController.dispose();
     _addressController.dispose();
+    _mnumController.dispose();
     _usernameController.dispose();
     super.dispose();
   }
@@ -60,6 +62,7 @@ class SignUpState extends State<SignUp> {
         addUserDetails(
           _nameController.text.trim(),
           _addressController.text.trim(),
+          _mnumController.text.trim(),
           _usernameController.text.trim(),
           _emailController.text.trim(),
           uid: uid, // Pass the UID to addUserDetails
@@ -92,11 +95,12 @@ class SignUpState extends State<SignUp> {
   }
 
 
-  Future addUserDetails(String name, String address, String username, String email, {required String uid}) async {
+  Future addUserDetails(String name, String address, String mobilenum, String username, String email, {required String uid}) async {
     try {
       await FirebaseFirestore.instance.collection('users').add({
         'name': name,
         'address': address,
+        'mobile number': mobilenum,
         'username': username,
         'email': email,
         'uid': uid,
@@ -119,6 +123,7 @@ class SignUpState extends State<SignUp> {
     // Form Stuffs
     bool isNameValid = true;
     bool isAddressValid = true;
+    bool isMobileNumValid = true;
     bool isUsernameValid = true;
     bool isEmailValid = true;
     bool hasInteractedEmail = false; // Separate flag for email
@@ -302,6 +307,52 @@ class SignUpState extends State<SignUp> {
                                 ),
                               ),
 
+                              //Mobile Number Text Field
+                              Container(
+                                width: 290 * swf,
+                                height: 43 * swf,
+                                margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(21 * swf),
+                                  border: Border.all(
+                                    color: isMobileNumValid ? const Color(0xffffd266) : Colors.red,
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: _mnumController,
+                                  keyboardType: TextInputType.phone, // Set the input type to phone
+                                  decoration: InputDecoration(
+                                    hintText: 'Mobile Number*',
+                                    hintStyle: const TextStyle(
+                                      color: Color(0xff888888),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(21 * swf),
+                                      borderSide: const BorderSide(
+                                        color: Color(0xffffffff),
+                                      ),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(21 * swf),
+                                      borderSide: BorderSide(
+                                        color: isMobileNumValid ? const Color(0xffffd266) : Colors.red,
+                                        width: 3,
+                                      ),
+                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                      vertical: 12,
+                                    ),
+                                  ),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      isMobileNumValid = value.isNotEmpty;
+                                    });
+                                  },
+                                ),
+                              ),
+
                               // Email Address Text Field
                               Container(
                                 width: 290 * swf,
@@ -369,7 +420,7 @@ class SignUpState extends State<SignUp> {
                                       visible: hasInteractedEmail && !(isEmailValid && isValidEmail(_emailController.text)),
                                       child: Positioned(
                                         right: 13, // Adjust the position as needed
-                                        top: 11,  // Adjust the position as needed
+                                        top: 12,  // Adjust the position as needed
                                         child: InkWell(
                                           onTap: () {
                                             showDialog(
