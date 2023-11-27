@@ -113,185 +113,149 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     double aswf = swf * 0.97; //aswf - adjustedScreenWidthFactor
 
     return Scaffold(
-        extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor:Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.black, // Set the color of the back arrow button
-          onPressed: () {
-            // Navigate back to SignIn screen
-            Navigator.pop(context);
-          },
-        ),
-      ),
         body: SingleChildScrollView(
             child: Container(
-      width: double.infinity,
-      height: 851 * swf,
-      decoration: const BoxDecoration(
-        color: Color(0xffffffff),
-      ),
-      child: Container(
-        padding: EdgeInsets.fromLTRB(0 * swf, 6 * swf, 0 * swf, 0 * swf),
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xefffb500),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              // Container with background image
               width: double.infinity,
-              height: 385 * swf,
-              child: Stack(
-                //to overlay multiple widgets
-                children: [
-                  Positioned(
-                    // to position child widgets relative to the Stack
-                    // positioning of ellipse image
-                    left: 0 * swf,
-                    right: 0 * swf,
-                    top: 0 * swf,
-                    child: Align(
-                      child: SizedBox(
-                        width: 425.5 * swf,
-                        height: 285.2 * swf,
-                        child: Image.asset(
-                          'assets/app/images/ellipse.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // to position child widgets relative to the Stack
-                    // Positioning Sign-in container
-                    left: 25 * swf,
-                    top: 144 * swf,
-                    child: Container(
-                      //for grouping and styling UI parts
-                      width: 301 * swf,
-                      height: 240 * swf,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20 * swf),
-                      ),
+              height: 851 * swf,
+              decoration: const BoxDecoration(
+                color: Color(0xffffffff),
+              ),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(0 * swf, 6 * swf, 0 * swf, 0 * swf),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color(0xefffb500),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      // Container with background image
+                      width: double.infinity,
+                      height: 385 * swf,
                       child: Stack(
+                        //to overlay multiple widgets
                         children: [
                           Positioned(
-                            // to precisely position child widgets relative to the Stack
-                            // Sign-Up Description
-                            left: 11 * swf,
-                            top: 69 * swf,
+                            // to position child widgets relative to the Stack
+                            // positioning of ellipse image
+                            left: 0 * swf,
+                            right: 0 * swf,
+                            top: 0 * swf,
                             child: Align(
                               child: SizedBox(
-                                width: 290 * swf,
-                                height: 40 * swf,
-                                child: Text(
-                                  'Enter the email associated with your account to reset your password.',
-                                  textAlign: TextAlign.center,
-                                  style: SafeGoogleFont(
-                                    //custom text style function (Google Fonts)
-                                    'Nunito',
-                                    fontSize: 14 * aswf,
-                                    fontWeight: FontWeight.w600,
-                                    height: 0 * aswf / swf,
-                                    color: const Color(0xff394888),
+                                width: 425.5 * swf,
+                                height: 285.2 * swf,
+                                child: Image.asset(
+                                  'assets/app/images/ellipse.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            // Back Button
+                            left: 12*swf,
+                            top: 50*swf,
+                            child: Align(
+                              child: SizedBox(
+                                width: 37*swf,
+                                height: 37*swf,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  style: TextButton.styleFrom (
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/app/images/back-button-VxR.png',
+                                    width: 37*swf,
+                                    height: 37*swf,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 11 * swf,
-                            top: 0 * swf,
+                            // to position child widgets relative to the Stack
+                            // Positioning Sign-in container
+                            left: 25 * swf,
+                            top: 144 * swf,
                             child: Container(
-                              width: 290 * swf,
+                              //for grouping and styling UI parts
+                              width: 301 * swf,
                               height: 240 * swf,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20 * swf),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              child: Stack(
                                 children: [
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * swf,
-                                        25 * swf,
-                                        0 * swf,
-                                        20 *
-                                            swf), // Adjust top margin as needed
-                                    child: Text(
-                                      'Reset your Password',
-                                      textAlign: TextAlign.center,
-                                      style: SafeGoogleFont(
-                                        'Nunito',
-                                        fontSize: 29 * aswf,
-                                        fontWeight: FontWeight.w900,
-                                        height: 1.59 * aswf / swf,
-                                        color: const Color(0xff000000),
+                                  Positioned(
+                                    // to precisely position child widgets relative to the Stack
+                                    // Sign-Up Description
+                                    left: 11 * swf,
+                                    top: 69 * swf,
+                                    child: Align(
+                                      child: SizedBox(
+                                        width: 290 * swf,
+                                        height: 40 * swf,
+                                        child: Text(
+                                          'Enter the email associated with your account to reset your password.',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            //custom text style function (Google Fonts)
+                                            'Nunito',
+                                            fontSize: 14 * aswf,
+                                            fontWeight: FontWeight.w600,
+                                            height: 0 * aswf / swf,
+                                            color: const Color(0xff394888),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-
-                                  // Email Text Field
-                                  Container(
-                                    width: 300 * swf,
-                                    height: 43 * swf,
-                                    margin: const EdgeInsets.fromLTRB(0, 28, 0, 25),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(21 * swf),
-                                      border: Border.all(
-                                        color: hasInteractedEmail
-                                            ? (isEmailValid && isValidEmail(_emailController.text))
-                                            ? const Color(0xffffd266)
-                                            : Colors.red
-                                            : const Color(0xffffd266),
-                                        width: 2,
+                                  Positioned(
+                                    left: 11 * swf,
+                                    top: 0 * swf,
+                                    child: Container(
+                                      width: 290 * swf,
+                                      height: 240 * swf,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20 * swf),
                                       ),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        TextFormField(
-                                          controller: _emailController,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              hasInteractedEmail = true;
-                                              isEmailValid = isValidEmail(value);
-                                            });
-                                          },
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Please Enter Your Email';
-                                            } else if (!isValidEmail(value)) {
-                                              // Show Snackbar when the email is not valid
-                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                const SnackBar(
-                                                  content: Text('Please Enter a Valid Email'),
-                                                  backgroundColor: Colors.red,
-                                                ),
-                                              );
-                                              return 'Please Enter a Valid Email';
-                                            }
-                                            return null;
-                                          },
-                                          decoration: InputDecoration(
-                                            hintText: 'Email', // Adjust the hintText accordingly
-                                            hintStyle: const TextStyle(
-                                              color: Color(0xff888888),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(21 * swf),
-                                              borderSide: const BorderSide(
-                                                color: Colors.white,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                0 * swf,
+                                                25 * swf,
+                                                0 * swf,
+                                                20 *
+                                                    swf), // Adjust top margin as needed
+                                            child: Text(
+                                              'Reset your Password',
+                                              textAlign: TextAlign.center,
+                                              style: SafeGoogleFont(
+                                                'Nunito',
+                                                fontSize: 29 * aswf,
+                                                fontWeight: FontWeight.w900,
+                                                height: 1.59 * aswf / swf,
+                                                color: const Color(0xff000000),
                                               ),
                                             ),
-                                            enabledBorder: OutlineInputBorder(
+                                          ),
+
+                                          // Email Text Field
+                                          Container(
+                                            width: 300 * swf,
+                                            height: 43 * swf,
+                                            margin: const EdgeInsets.fromLTRB(0, 28, 0, 25),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
                                               borderRadius: BorderRadius.circular(21 * swf),
-                                              borderSide: BorderSide(
+                                              border: Border.all(
                                                 color: hasInteractedEmail
                                                     ? (isEmailValid && isValidEmail(_emailController.text))
                                                     ? const Color(0xffffd266)
@@ -300,117 +264,168 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                                 width: 2,
                                               ),
                                             ),
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 21,
-                                              vertical: 12,
-                                            ),
-                                          ),
-                                        ),
-                                        Visibility(
-                                          visible: hasInteractedEmail && !(isEmailValid && isValidEmail(_emailController.text)),
-                                          child: Positioned(
-                                            right: 13, // Adjust the position as needed
-                                            top: 11,  // Adjust the position as needed
-                                            child: InkWell(
-                                              onTap: () {
-                                                showDialog(
-                                                  context: context,
-                                                  builder: (BuildContext context) {
-                                                    return AlertDialog(
-                                                      contentPadding: const EdgeInsets.all(20.0),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(21.0),
-                                                        side: const BorderSide(color: Color(0xefffb500), width: 5.0), // Set the border color here
+                                            child: Stack(
+                                              children: [
+                                                TextFormField(
+                                                  controller: _emailController,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      hasInteractedEmail = true;
+                                                      isEmailValid = isValidEmail(value);
+                                                    });
+                                                  },
+                                                  validator: (value) {
+                                                    if (value == null || value.isEmpty) {
+                                                      return 'Please Enter Your Email';
+                                                    } else if (!isValidEmail(value)) {
+                                                      // Show Snackbar when the email is not valid
+                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                        const SnackBar(
+                                                          content: Text('Please Enter a Valid Email'),
+                                                          backgroundColor: Colors.red,
+                                                        ),
+                                                      );
+                                                      return 'Please Enter a Valid Email';
+                                                    }
+                                                    return null;
+                                                  },
+                                                  decoration: InputDecoration(
+                                                    hintText: 'Email', // Adjust the hintText accordingly
+                                                    hintStyle: const TextStyle(
+                                                      color: Color(0xff888888),
+                                                    ),
+                                                    focusedBorder: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(21 * swf),
+                                                      borderSide: const BorderSide(
+                                                        color: Colors.white,
                                                       ),
-                                                      content: const Column(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          SizedBox(
-                                                            height: 20.0,  // Adjust the height as needed
-                                                            child: Text('Please enter a valid email address.'),
-                                                          ),
-                                                          SizedBox(height: 5.0),  // Adjust the height as needed
-                                                          SizedBox(
-                                                            height: 18.0,  // Adjust the height as needed
-                                                            child: Center(
-                                                              child: Text('e.g. (name@example.com)'),
-                                                            ),
-                                                          ),
-                                                        ],
+                                                    ),
+                                                    enabledBorder: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(21 * swf),
+                                                      borderSide: BorderSide(
+                                                        color: hasInteractedEmail
+                                                            ? (isEmailValid && isValidEmail(_emailController.text))
+                                                            ? const Color(0xffffd266)
+                                                            : Colors.red
+                                                            : const Color(0xffffd266),
+                                                        width: 2,
                                                       ),
-                                                      actions: <Widget>[
-                                                        Center(
-                                                          child: ElevatedButton(
-                                                            style: ElevatedButton.styleFrom(
-                                                              backgroundColor: Colors.green,
+                                                    ),
+                                                    contentPadding: const EdgeInsets.symmetric(
+                                                      horizontal: 21,
+                                                      vertical: 12,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: hasInteractedEmail && !(isEmailValid && isValidEmail(_emailController.text)),
+                                                  child: Positioned(
+                                                    right: 13, // Adjust the position as needed
+                                                    top: 11,  // Adjust the position as needed
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext context) {
+                                                            return AlertDialog(
+                                                              contentPadding: const EdgeInsets.all(20.0),
                                                               shape: RoundedRectangleBorder(
                                                                 borderRadius: BorderRadius.circular(21.0),
+                                                                side: const BorderSide(color: Color(0xefffb500), width: 5.0), // Set the border color here
                                                               ),
-                                                            ),
-                                                            onPressed: () {
-                                                              Navigator.of(context).pop();
-                                                            },
-                                                            child: const Text('OK'),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                              child: const Icon(
-                                                Icons.info,
-                                                color: Colors.red,
-                                                size: 20,
+                                                              content: const Column(
+                                                                mainAxisSize: MainAxisSize.min,
+                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                children: [
+                                                                  SizedBox(
+                                                                    height: 20.0,  // Adjust the height as needed
+                                                                    child: Text('Please enter a valid email address.'),
+                                                                  ),
+                                                                  SizedBox(height: 5.0),  // Adjust the height as needed
+                                                                  SizedBox(
+                                                                    height: 18.0,  // Adjust the height as needed
+                                                                    child: Center(
+                                                                      child: Text('e.g. (name@example.com)'),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              actions: <Widget>[
+                                                                Center(
+                                                                  child: ElevatedButton(
+                                                                    style: ElevatedButton.styleFrom(
+                                                                      backgroundColor: Colors.green,
+                                                                      shape: RoundedRectangleBorder(
+                                                                        borderRadius: BorderRadius.circular(21.0),
+                                                                      ),
+                                                                    ),
+                                                                    onPressed: () {
+                                                                      Navigator.of(context).pop();
+                                                                    },
+                                                                    child: const Text('OK'),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                      child: const Icon(
+                                                        Icons.info,
+                                                        color: Colors.red,
+                                                        size: 20,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+
+                                          // Sign-In Button
+                                          GestureDetector(
+                                            onTap: () {
+                                              // Check email validity and perform the action accordingly
+                                              if (isEmailValid) {
+                                                passwordReset(context); // Pass the context
+                                              } else {
+                                                // Handle invalid email, e.g., show a message
+                                                // You can also prevent the action if needed
+                                              }
+                                            },
+                                            child: ElevatedButton(
+                                              onPressed: isEmailValid ? () => passwordReset(context) : null, // Set onPressed dynamically
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: isEmailValid ? const Color(0xff000000) : Colors.grey, // Change color based on validity
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(21 * swf),
+                                                ),
+                                              ),
+                                              child: Container(
+                                                width: 258 * swf,
+                                                height: 43 * swf,
+                                                padding: const EdgeInsets.only(top: 4),
+                                                child: Center(
+                                                  child: Text(
+                                                    'Send Link',
+                                                    textAlign: TextAlign.center,
+                                                    style: SafeGoogleFont(
+                                                      'Nunito',
+                                                      fontSize: 16 * aswf,
+                                                      fontWeight: FontWeight.w900,
+                                                      height: 1 * aswf / swf,
+                                                      color: const Color(0xffffffff),
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ],
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
-
-                                  // Sign-In Button
-                                  GestureDetector(
-                                    onTap: () {
-                                      // Check email validity and perform the action accordingly
-                                      if (isEmailValid) {
-                                        passwordReset(context); // Pass the context
-                                      } else {
-                                        // Handle invalid email, e.g., show a message
-                                        // You can also prevent the action if needed
-                                      }
-                                    },
-                                    child: ElevatedButton(
-                                      onPressed: isEmailValid ? () => passwordReset(context) : null, // Set onPressed dynamically
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: isEmailValid ? const Color(0xff000000) : Colors.grey, // Change color based on validity
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(21 * swf),
-                                        ),
-                                      ),
-                                      child: Container(
-                                        width: 258 * swf,
-                                        height: 43 * swf,
-                                        padding: const EdgeInsets.only(top: 4),
-                                        child: Center(
-                                          child: Text(
-                                            'Send Link',
-                                            textAlign: TextAlign.center,
-                                            style: SafeGoogleFont(
-                                              'Nunito',
-                                              fontSize: 16 * aswf,
-                                              fontWeight: FontWeight.w900,
-                                              height: 1 * aswf / swf,
-                                              color: const Color(0xffffffff),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
                                 ],
                               ),
                             ),
@@ -418,40 +433,36 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              // Group Container
-              padding:
-                  EdgeInsets.fromLTRB(78 * swf, 11 * swf, 91 * swf, 132 * swf),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin:
-                        EdgeInsets.fromLTRB(0 * swf, 0 * swf, 0 * swf, 0 * swf),
-                  ),
-                  Container(
-                    //for grouping and styling UI parts
-                    // Pet-care Image Container
-                    margin: EdgeInsets.fromLTRB(
-                        13 * swf, 25 * swf, 0 * swf, 21 * swf),
-                    width: 200 * swf,
-                    height: 228 * swf,
-                    child: Image.asset(
-                      'assets/app/images/petcare-2.png',
-                      fit: BoxFit.cover,
+                    Container(
+                      // Group Container
+                      padding:
+                      EdgeInsets.fromLTRB(78 * swf, 11 * swf, 91 * swf, 132 * swf),
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin:
+                            EdgeInsets.fromLTRB(0 * swf, 0 * swf, 0 * swf, 0 * swf),
+                          ),
+                          Container(
+                            //for grouping and styling UI parts
+                            // Pet-care Image Container
+                            margin: EdgeInsets.fromLTRB(
+                                13 * swf, 25 * swf, 0 * swf, 21 * swf),
+                            width: 200 * swf,
+                            height: 228 * swf,
+                            child: Image.asset(
+                              'assets/app/images/petcare-2.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
-    )));
+            )));
   }
 }
