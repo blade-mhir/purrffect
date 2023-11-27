@@ -1,10 +1,14 @@
 /* Authored by: Blademhir U. Ferrer
 Company: Vertex Labs
 Project: Purrfect
-Feature: [PRFT-004] Sign In Screen
-Description: This is the Sign In screen for Purrfect. This will let the users to log-in to their
-             purrfect accounts if they have an existing account created already.If the user don't
-             have an account, they can be directed to the Sign-Up screen by pressing Sign-Up text button below.
+Feature: [PRFT-017] Pet Groomer Clinic Appointment Screen
+Description: This is the Pet Groomer Clinic Appointment Screen for Purrfect. The main components include a calendar for
+             selecting a date, time slot buttons for choosing appointment times, service options button to choose the type of service
+             and a text field for specifying the reason for the appointment. The user can confirm the appointment
+             through a "Book Appointment" button, triggering a dialog to confirm the booking. Just like the Vet Appointment screen,
+             this also features a navigation bar at the bottom for easy navigation between home, appointments, and pet-related sections.
+             The code is also well-structured, with separate classes for the main screen, time slot buttons, service option buttons,
+             choose pet dialog and appointment confirmation dialog.
  */
 
 import 'package:flutter/material.dart';

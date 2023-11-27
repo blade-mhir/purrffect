@@ -1,10 +1,15 @@
 /* Authored by: Blademhir U. Ferrer
 Company: Vertex Labs
 Project: Purrfect
-Feature: [PRFT-004] Sign In Screen
-Description: This is the Sign In screen for Purrfect. This will let the users to log-in to their
-             purrfect accounts if they have an existing account created already.If the user don't
-             have an account, they can be directed to the Sign-Up screen by pressing Sign-Up text button below.
+Feature: [PRFT-029] Forgot Password Screen
+Description: This is the Forgot Password Screen for Purrfect. The screen is designed to facilitate the
+             process of resetting a user's password. Users are prompted to enter the email associated
+             with their account. The logic in the passwordReset function then checks whether the provided
+             email is registered. If the email is associated with an existing account, a password reset
+             email is sent using Firebase authentication. Success and error messages are displayed through
+             SnackBars to provide immediate feedback to the user. The UI features a visually appealing design
+             with a background image, a back button for navigation, and input fields for email entry.
+             Additionally, the program incorporates form validation to ensure that the entered email follows a valid format.
  */
 
 import 'package:firebase_auth/firebase_auth.dart';

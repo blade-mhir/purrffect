@@ -5,6 +5,8 @@ Feature: [PRFT-004] Sign In Screen
 Description: This is the Sign In screen for Purrfect. This will let the users to log-in to their
              purrfect accounts if they have an existing account created already.If the user don't
              have an account, they can be directed to the Sign-Up screen by pressing Sign-Up text button below.
+             If the user forgot their password, they can press the Forgot Password button so that they will be
+             directed to the Forgot Password screen to reset their password.
  */
 
 import 'package:firebase_auth/firebase_auth.dart';
