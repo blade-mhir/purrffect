@@ -26,7 +26,7 @@ class GroomerAppointment extends StatefulWidget {
 
 }
 
-// Define the state class for SignIn widget
+// Define the state class for Groomer Appointment Widget
 class _GroomerAppointmentState extends State<GroomerAppointment> {
 
 
@@ -654,15 +654,15 @@ class ServiceOptionsButtonsState extends State<ServiceOptionsButtons> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          buildServiceOptionButton('Home Service', Icons.home, 0),
-          buildServiceOptionButton('Walk-In', Icons.directions_walk, 1),
-          buildServiceOptionButton('Pick-up and Delivery', Icons.local_shipping, 2),
+          buildServiceOptionButton('Home Service', 'assets/app/images/animalshelter.png', 0),
+          buildServiceOptionButton('Walk-In', 'assets/app/images/dog.png', 1),
+          buildServiceOptionButton('Pick-up and Delivery', 'assets/app/images/pettaxi.png', 2),
         ],
       ),
     );
   }
 
-  Widget buildServiceOptionButton(String serviceOption, IconData iconData, int buttonIndex) {
+  Widget buildServiceOptionButton(String serviceOption, String imagePath, int buttonIndex) {
     return InkWell(
       onTap: () {
         setState(() {
@@ -692,9 +692,10 @@ class ServiceOptionsButtonsState extends State<ServiceOptionsButtons> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              iconData,
-              size: 40, // Adjust the size of the icon
+            Image.asset(
+              imagePath,
+              width: 40, // Adjust the width of the image
+              height: 40, // Adjust the height of the image
               color: Colors.black,
             ),
             const SizedBox(height: 8),

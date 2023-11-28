@@ -43,6 +43,7 @@ dependencies:
   logger: ^2.0.2+1
   cloud_firestore: ^4.13.1
   table_calendar: ^3.0.9
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,7 @@ flutter:
     - assets/app/images/purrfect_logo.png
     - assets/app/images/Ellipse 1.png
     - assets/app/images/vertex logo.png
+    #Appointment Screens
     - assets/app/images/ellipse-3.png
     - assets/app/images/back-button-VxR.png
     - assets/app/images/fluent-home-32-regular-1Gy.png
@@ -88,6 +90,11 @@ flutter:
     - assets/app/images/rectangle-24.png
     - assets/app/images/petpic.png
     - assets/app/images/petpic-SaH.png
+    - assets/app/images/pettaxi.png
+    - assets/app/images/dog.png
+    - assets/app/images/animalshelter.png
+    #Feedback Screen
+    - assets/app/images/rectangle-6-bg.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

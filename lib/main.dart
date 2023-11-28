@@ -8,6 +8,7 @@ import 'package:purrfect/app/sign_up.dart';
 import 'package:purrfect/app/homepage.dart';
 import 'package:purrfect/app/vet_appointment.dart';
 import 'app/groomer_appointment.dart';
+import 'package:purrfect/app/feedback.dart';
 
 void main() async {
 	WidgetsFlutterBinding.ensureInitialized();
@@ -42,8 +43,10 @@ class Purrfect extends StatelessWidget {
 			debugShowCheckedModeBanner: false,
 			initialRoute: '/', // Set the initial route to the home route
 			routes: {
+				//'/': (context) => const FeedbackScreen(),
 				//'/': (context) => const VetAppointment(),
 				'/': (context) => const GroomerAppointment(),
+
 				// '/': (context) => const MainPage(), // Home route
 				// '/sign_in': (context) => SignIn(showSignUp: () {
 				// 	Navigator.pushReplacementNamed(context, '/sign_up');
