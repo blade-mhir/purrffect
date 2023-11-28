@@ -18,7 +18,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:logger/logger.dart';
 
 
-// Define a StatefulWidget class for Sign-In
+// Define a StatefulWidget class for Vet Appointment
 class VetAppointment extends StatefulWidget {
   const VetAppointment({Key? key}) : super(key: key);
 
@@ -27,7 +27,7 @@ class VetAppointment extends StatefulWidget {
 
 }
 
-// Define the state class for SignIn widget
+// Define the state class for Vet Appointment widget
 class _VetAppointmentState extends State<VetAppointment> {
 
   DateTime today = DateTime.now();
@@ -48,7 +48,6 @@ class _VetAppointmentState extends State<VetAppointment> {
     double swf = MediaQuery.of(context).size.width / baseWidth;
     double aswf = swf * 0.97;
     return Material(
-      child: SingleChildScrollView(
           child: SizedBox(
             width: double.infinity,
             child: Container(
@@ -506,7 +505,6 @@ class _VetAppointmentState extends State<VetAppointment> {
               ),
             ),
           )
-      ),
     );
   }
 }
