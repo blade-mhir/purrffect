@@ -611,6 +611,8 @@ class ChoosePetDialog extends StatefulWidget {
 }
 
 class ChoosePetDialogState extends State<ChoosePetDialog> {
+
+  Set<String> selectedButtons = {};
   String selectedButton = '';
   double buttonBorderRadius = 10.0;
   bool isOkButtonEnabled = false; // Track the state of the OK button
@@ -683,70 +685,81 @@ class ChoosePetDialogState extends State<ChoosePetDialog> {
                 ),
                 onPressed: isOkButtonEnabled
                     ? () {
-                  // Show confirmation dialog when OK button is enabled and clicked
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        content: SizedBox(
-                          width: 80,
-                          height: 96,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                'Are you sure you want to book this appointment?',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xffffb500),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).popUntil((route) => route.isFirst); // Close all dialogs
-                                      onAppointmentConfirmed();
-                                    },
-                                    child: const Text(
-                                      'Confirm',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.grey,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      // Add logic for canceling the appointment here
-                                    },
-                                    child: const Text('Cancel'),
-                                  ),
-                                ],
-                              ),
-                            ],
+                  // Close the "Choose Pet" dialog
+                  Navigator.of(context).pop();
+
+                  // Show confirmation dialog using Future.delayed to ensure the "Choose Pet" dialog is fully closed
+                  Future.delayed(Duration.zero, () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
                           ),
-                        ),
-                      );
-                    },
-                  );
+                          content: SizedBox(
+                            width: 80,
+                            height: 96,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Are you sure you want to book this appointment?',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                        const Color(0xffffb500),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).popUntil(
+                                                (route) => route
+                                                .isFirst); // Close all dialogs
+                                        onAppointmentConfirmed();
+                                      },
+                                      child: const Text(
+                                        'Confirm',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.grey,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        // Add logic for canceling the appointment here
+                                      },
+                                      child: const Text('Cancel'),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  });
                 }
                     : null,
                 child: const Text('OK'),
@@ -760,15 +773,20 @@ class ChoosePetDialogState extends State<ChoosePetDialog> {
 
   Widget _buildCircleButton(String label, String imagePath) {
     double buttonSize = 70;
-    bool isSelected = selectedButton == label;
+    bool isSelected = selectedButtons.contains(label);
 
     return GestureDetector(
       onTap: () {
         logger.e('Button clicked: $label');
-        // Update the selected button state
+        // Toggle the selected state of the button
         setState(() {
-          selectedButton = label;
-          isOkButtonEnabled = true; // Enable the OK button
+          if (isSelected) {
+            selectedButtons.remove(label);
+          } else {
+            selectedButtons.add(label);
+          }
+          // Enable the OK button if there is at least one button selected
+          isOkButtonEnabled = selectedButtons.isNotEmpty;
         });
       },
       child: Column(
