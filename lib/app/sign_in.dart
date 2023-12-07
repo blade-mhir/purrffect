@@ -121,359 +121,400 @@ class SignInState extends State<SignIn> {
 
     return Scaffold(
         body: SingleChildScrollView(
-            child: Container(
-      width: double.infinity,
-      height: 851 * swf,
-      decoration: const BoxDecoration(
-        color: Color(0xffffffff),
-      ),
-      child: Container(
-        padding: EdgeInsets.fromLTRB(0 * swf, 6 * swf, 0 * swf, 0 * swf),
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xefffb500),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              // Container with background image
-              width: double.infinity,
-              height: 385 * swf,
-              child: Stack(
-                //to overlay multiple widgets
+          child: Material(
+            child: SizedBox(
+            width: double.infinity,
+              child: Column(
                 children: [
-                  Positioned(
-                    // to position child widgets relative to the Stack
-                    // positioning of ellipse image
-                    left: 0 * swf,
-                    right: 0 * swf,
-                    top: 0 * swf,
-                    child: Align(
-                      child: SizedBox(
-                        width: 425.5 * swf,
-                        height: 285.2 * swf,
-                        child: Image.asset(
-                          'assets/app/images/ellipse.png',
+                Container(
+                width: double.infinity,
+                height: 758 * swf,
+                decoration: const BoxDecoration(
+                color: Color(0xffffb500),
+                ),
+                  child: Stack(
+                    children: [
+                    SizedBox(
+                    child: Stack(
+                      //to overlay multiple widgets
+                      children: [
+                        Positioned(
+                          // to position child widgets relative to the Stack
+                          // positioning of ellipse image
+                          left: 0 * swf,
+                          right: 0 * swf,
+                          top: 0 * swf,
+                          child: Align(
+                            child: SizedBox(
+                              width: 425.5 * swf,
+                              height: 285.2 * swf,
+                              child: Image.asset(
+                                'assets/app/images/ellipse.png',
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // to position child widgets relative to the Stack
-                    // Positioning Sign-in container
-                    left: 25 * swf,
-                    top: 144 * swf,
-                    bottom: 0 * swf,
-                    child: Container(
-                      //for grouping and styling UI parts
-                      width: 301 * swf,
-                      height: 230 * swf,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20 * swf),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            // to position child widgets relative to the Stack
-                            // Positioning below Sign-In text
-                            left: 38.5 * swf,
-                            top: 57 * swf,
-                            child: Align(
-                              child: SizedBox(
-                                width: 235 * swf,
-                                height: 20 * swf,
-                                child: Text(
-                                  'Hi, I’m Purrfect - pet care made easy.',
-                                  textAlign: TextAlign.center,
-                                  style: SafeGoogleFont(
-                                    // custom text style function (Google Fonts)
-                                    'Nunito',
-                                    fontSize: 14 * aswf,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.7 * aswf / swf,
-                                    color: const Color(0xff394888),
+                        Positioned(
+                          // to position child widgets relative to the Stack
+                          // Positioning Sign-in container
+                          left: 25 * swf,
+                          top: 144 * swf,
+                          bottom: 0 * swf,
+                          child: Container(
+                            //for grouping and styling UI parts
+                            width: 301 * swf,
+                            height: 230 * swf,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20 * swf),
+                            ),
+                            child: Stack(
+                              children: [
+                              Positioned(
+                              // to position child widgets relative to the Stack
+                              // Positioning below Sign-In text
+                              left: 38.5 * swf,
+                              top: 57 * swf,
+                              child: Align(
+                                child: SizedBox(
+                                  width: 235 * swf,
+                                  height: 20 * swf,
+                                  child: Text(
+                                    'Hi, I’m Purrfect - pet care made easy.',
+                                    textAlign: TextAlign.center,
+                                    style: SafeGoogleFont(
+                                      // custom text style function (Google Fonts)
+                                      'Nunito',
+                                      fontSize: 14 * aswf,
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.7 * aswf / swf,
+                                      color: const Color(0xff394888),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            left: 11 * swf,
-                            top: 0 * swf,
-                            child: Container(
-                              width: 290 * swf,
-                              height: 240 * swf,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20 * swf),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * swf,
-                                        4 * swf,
-                                        0 * swf,
-                                        16 *
-                                            swf), // Adjust top margin as needed
-                                    child: Text(
-                                      'Sign In',
-                                      textAlign: TextAlign.center,
-                                      style: SafeGoogleFont(
-                                        'Nunito',
-                                        fontSize: 37 * aswf,
-                                        fontWeight: FontWeight.w900,
-                                        height: 1.59 * aswf / swf,
-                                        color: const Color(0xff000000),
+                            Positioned(
+                              left: 11 * swf,
+                              top: 0 * swf,
+                              child: Container(
+                                width: 290 * swf,
+                                height: 240 * swf,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20 * swf),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(
+                                          0 * swf,
+                                          4 * swf,
+                                          0 * swf,
+                                          16 *
+                                              swf), // Adjust top margin as needed
+                                      child: Text(
+                                        'Sign In',
+                                        textAlign: TextAlign.center,
+                                        style: SafeGoogleFont(
+                                          'Nunito',
+                                          fontSize: 37 * aswf,
+                                          fontWeight: FontWeight.w900,
+                                          height: 1.59 * aswf / swf,
+                                          color: const Color(0xff000000),
+                                        ),
                                       ),
                                     ),
-                                  ),
 
-                                  // Email Text Field
-                                  Container(
-                                    width: 300 * swf,
-                                    height: 43 * swf,
-                                    margin: const EdgeInsets.fromLTRB(0, 11, 0, 5),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(21 * swf),
-                                      border: Border.all(
-                                        color: hasInteractedEmail
-                                            ? (isEmailValid && isValidEmail(_emailController.text))
-                                            ? const Color(0xffffd266)
-                                            : Colors.red
-                                            : const Color(0xffffd266),
-                                        width: 2,
+                                    // Email Text Field
+                                    Container(
+                                      width: 300 * swf,
+                                      height: 43 * swf,
+                                      margin: const EdgeInsets.fromLTRB(0, 11, 0, 5),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(21 * swf),
+                                        border: Border.all(
+                                          color: hasInteractedEmail
+                                              ? (isEmailValid && isValidEmail(_emailController.text))
+                                              ? const Color(0xffffd266)
+                                              : Colors.red
+                                              : const Color(0xffffd266),
+                                          width: 2,
+                                        ),
                                       ),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        TextFormField(
-                                          controller: _emailController,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              hasInteractedEmail = true;
-                                              isEmailValid = isValidEmail(value);
-                                            });
-                                          },
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Please Enter Your Email';
-                                            } else if (!isValidEmail(value)) {
-                                              return 'Please Enter a Valid Email';
-                                            }
-                                            return null;
-                                          },
-                                          decoration: InputDecoration(
-                                            hintText: 'Email',
-                                            hintStyle: const TextStyle(
-                                              color: Color(0xff888888),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(21 * swf),
-                                              borderSide: const BorderSide(
-                                                color: Colors.white,
+                                      child: Stack(
+                                        children: [
+                                          TextFormField(
+                                            controller: _emailController,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                hasInteractedEmail = true;
+                                                isEmailValid = isValidEmail(value);
+                                              });
+                                            },
+                                            validator: (value) {
+                                              if (value == null || value.isEmpty) {
+                                                return 'Please Enter Your Email';
+                                              } else if (!isValidEmail(value)) {
+                                                return 'Please Enter a Valid Email';
+                                              }
+                                              return null;
+                                            },
+                                            decoration: InputDecoration(
+                                              hintText: 'Email',
+                                              hintStyle: const TextStyle(
+                                                color: Color(0xff888888),
                                               ),
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(21 * swf),
-                                              borderSide: BorderSide(
-                                                color: hasInteractedEmail
-                                                    ? (isEmailValid && isValidEmail(_emailController.text))
-                                                    ? const Color(0xffffd266)
-                                                    : Colors.red
-                                                    : const Color(0xffffd266),
-                                                width: 2,
+                                              focusedBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.circular(21 * swf),
+                                                borderSide: const BorderSide(
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                            ),
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 20,
-                                              vertical: 12,
-                                            ),
-                                            suffixIcon: hasInteractedEmail
-                                                ? (isEmailValid && isValidEmail(_emailController.text))
-                                                ? null  // Remove the check mark icon
-                                                : InkWell(
-                                              onTap: () {
-                                                // Handle click on Info icon
-                                                showDialog(
-                                                  context: context,
-                                                  builder: (BuildContext context) {
-                                                    return AlertDialog(
-                                                      contentPadding: const EdgeInsets.all(20.0),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(21.0),
-                                                        side: const BorderSide(color: Color(0xefffb500), width: 5.0),
-                                                      ),
-                                                      content: const Column(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          SizedBox(
-                                                            height: 20.0,
-                                                            child: Text('Please enter a valid email address.'),
-                                                          ),
-                                                          SizedBox(height: 5.0),
-                                                          SizedBox(
-                                                            height: 18.0,
-                                                            child: Center(
-                                                              child: Text('e.g. (name@example.com)'),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.circular(21 * swf),
+                                                borderSide: BorderSide(
+                                                  color: hasInteractedEmail
+                                                      ? (isEmailValid && isValidEmail(_emailController.text))
+                                                      ? const Color(0xffffd266)
+                                                      : Colors.red
+                                                      : const Color(0xffffd266),
+                                                  width: 2,
+                                                ),
+                                              ),
+                                              contentPadding: const EdgeInsets.symmetric(
+                                                horizontal: 20,
+                                                vertical: 12,
+                                              ),
+                                              suffixIcon: hasInteractedEmail
+                                                  ? (isEmailValid && isValidEmail(_emailController.text))
+                                                  ? null  // Remove the check mark icon
+                                                  : InkWell(
+                                                onTap: () {
+                                                  // Handle click on Info icon
+                                                  showDialog(
+                                                    context: context,
+                                                    builder: (BuildContext context) {
+                                                      return AlertDialog(
+                                                        contentPadding: const EdgeInsets.all(20.0),
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(21.0),
+                                                        ),
+                                                        content: Column(
+                                                          mainAxisSize: MainAxisSize.min,
+                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children: [
+                                                            const SizedBox(
+                                                              height: 20.0,  // Adjust the height as needed
+                                                              child: Text('Please enter a valid email address.'),
+                                                            ),
+                                                            const SizedBox(height: 20.0),  // Adjust the height as needed
+                                                            SizedBox(
+                                                              height: 18.0,
+                                                              child: Center(
+                                                                child: RichText(
+                                                                  text: TextSpan(
+                                                                    text: 'e.g. ',
+                                                                    style: DefaultTextStyle.of(context).style,
+                                                                    children: const <TextSpan>[
+                                                                      TextSpan(
+                                                                        text: '(name@example.com)',
+                                                                        style: TextStyle(
+                                                                          fontWeight: FontWeight.bold,
+                                                                          fontSize: 16.0,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        actions: <Widget>[
+                                                          Center(
+                                                            child: ElevatedButton(
+                                                              style: ElevatedButton.styleFrom(
+                                                                backgroundColor: Colors.green,
+                                                                shape: RoundedRectangleBorder(
+                                                                  borderRadius: BorderRadius.circular(21.0),
+                                                                ),
+                                                              ),
+                                                              onPressed: () {
+                                                                Navigator.of(context).pop();
+                                                              },
+                                                              child: const Text('OK'),
                                                             ),
                                                           ),
                                                         ],
-                                                      ),
-                                                      actions: <Widget>[
-                                                        Center(
-                                                          child: ElevatedButton(
-                                                            style: ElevatedButton.styleFrom(
-                                                              backgroundColor: Colors.green,
-                                                              shape: RoundedRectangleBorder(
-                                                                borderRadius: BorderRadius.circular(21.0),
-                                                              ),
-                                                            ),
-                                                            onPressed: () {
-                                                              Navigator.of(context).pop();
-                                                            },
-                                                            child: const Text('OK'),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                              child: const Icon(
-                                                Icons.info,
-                                                color: Colors.red,
-                                                size: 20,
-                                              ),
-                                            )
-                                                : null,
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                                child: const Icon(
+                                                  Icons.info,
+                                                  color: Colors.red,
+                                                  size: 20,
+                                                ),
+                                              )
+                                                  : null,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                  // Password Text Field
-                                  Container(
-                                    width: 290 * swf,
-                                    height: 43 * swf,
-                                    margin: const EdgeInsets.only(bottom: 17),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.circular(21 * swf),
-                                      border: Border.all(
-                                        color: hasInteractedPassword
-                                            ? (_passwordController
-                                                    .text.isNotEmpty
-                                                ? const Color(0xffffd266)
-                                                : Colors.red)
-                                            : const Color(0xffffd266),
-                                        width: 2,
+                                        ],
                                       ),
                                     ),
-                                    child: TextFormField(
-                                      controller: _passwordController,
-                                      obscureText: !_showPassword,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Please Enter Your Password';
-                                        }
-                                        return null;
-                                      },
-                                      onChanged: (value) {
-                                        setState(() {
-                                          hasInteractedPassword = true;
-                                        });
-                                      },
-                                      decoration: InputDecoration(
-                                        hintText: 'Password',
-                                        hintStyle: const TextStyle(
-                                          color: Color(0xff888888),
+
+                                    // Password Text Field
+                                    Container(
+                                      width: 290 * swf,
+                                      height: 43 * swf,
+                                      margin: const EdgeInsets.only(bottom: 17),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(21 * swf),
+                                        border: Border.all(
+                                          color: hasInteractedPassword
+                                              ? (_passwordController
+                                              .text.isNotEmpty
+                                              ? const Color(0xffffd266)
+                                              : Colors.red)
+                                              : const Color(0xffffd266),
+                                          width: 2,
                                         ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21 * swf),
-                                          borderSide: const BorderSide(
-                                            color: Colors.white,
+                                      ),
+                                      child: TextFormField(
+                                        controller: _passwordController,
+                                        obscureText: !_showPassword,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please Enter Your Password';
+                                          }
+                                          return null;
+                                        },
+                                        onChanged: (value) {
+                                          setState(() {
+                                            hasInteractedPassword = true;
+                                          });
+                                        },
+                                        decoration: InputDecoration(
+                                          hintText: 'Password',
+                                          hintStyle: const TextStyle(
+                                            color: Color(0xff888888),
                                           ),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21 * swf),
-                                          borderSide: BorderSide(
-                                            color: hasInteractedPassword
-                                                ? (_passwordController
-                                                        .text.isNotEmpty)
-                                                    ? const Color(0xffffd266)
-                                                    : Colors.red
-                                                : const Color(0xffffd266),
-                                            width: 2,
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(21 * swf),
+                                            borderSide: const BorderSide(
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                          horizontal: 20,
-                                          vertical: 12,
-                                        ),
-                                        suffixIcon: IconButton(
-                                          icon: Icon(
-                                            _showPassword
-                                                ? Icons.visibility
-                                                : Icons.visibility_off,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(21 * swf),
+                                            borderSide: BorderSide(
+                                              color: hasInteractedPassword
+                                                  ? (_passwordController
+                                                  .text.isNotEmpty)
+                                                  ? const Color(0xffffd266)
+                                                  : Colors.red
+                                                  : const Color(0xffffd266),
+                                              width: 2,
+                                            ),
                                           ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _showPassword = !_showPassword;
-                                            });
-                                          },
+                                          contentPadding:
+                                          const EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                            vertical: 12,
+                                          ),
+                                          suffixIcon: IconButton(
+                                            icon: Icon(
+                                              _showPassword
+                                                  ? Icons.visibility
+                                                  : Icons.visibility_off,
+                                            ),
+                                            onPressed: () {
+                                              setState(() {
+                                                _showPassword = !_showPassword;
+                                              });
+                                            },
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
 
-                                  //Sign-In Button
-                                  GestureDetector(
-                                    onTap: () => signIn(context),
-                                    child: ElevatedButton(
-                                      onPressed: (isEmailValid &&
+                                    //Sign-In Button
+                                    GestureDetector(
+                                      onTap: () => signIn(context),
+                                      child: ElevatedButton(
+                                        onPressed: (isEmailValid &&
+                                            _passwordController
+                                                .text.isNotEmpty)
+                                            ? () => signIn(context)
+                                            : null,
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: (isEmailValid &&
                                               _passwordController
                                                   .text.isNotEmpty)
-                                          ? () => signIn(context)
-                                          : null,
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: (isEmailValid &&
-                                                _passwordController
-                                                    .text.isNotEmpty)
-                                            ? const Color(0xff000000)
-                                            : Colors.grey,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21 * swf),
+                                              ? const Color(0xff000000)
+                                              : Colors.grey,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(21 * swf),
+                                          ),
                                         ),
-                                      ),
-                                      child: Container(
-                                        width: 258 * swf,
-                                        height: 43 * swf,
-                                        padding: const EdgeInsets.only(top: 4),
-                                        child: Center(
-                                          child: Text(
-                                            'Sign In',
-                                            textAlign: TextAlign.center,
-                                            style: SafeGoogleFont(
-                                              'Nunito',
-                                              fontSize: 16 * aswf,
-                                              fontWeight: FontWeight.w900,
-                                              height: 1 * aswf / swf,
-                                              color: const Color(0xffffffff),
+                                        child: Container(
+                                          width: 258 * swf,
+                                          height: 43 * swf,
+                                          padding: const EdgeInsets.only(top: 4),
+                                          child: Center(
+                                            child: Text(
+                                              'Sign In',
+                                              textAlign: TextAlign.center,
+                                              style: SafeGoogleFont(
+                                                'Nunito',
+                                                fontSize: 16 * aswf,
+                                                fontWeight: FontWeight.w900,
+                                                height: 1 * aswf / swf,
+                                                color: const Color(0xffffffff),
+                                              ),
                                             ),
                                           ),
                                         ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                            ),
+                        ),
+                        ),
+                        Positioned(
+                          left: 93 * swf,
+                          top: 400 * swf,
+                          child: Container(
+                            margin: EdgeInsets.fromLTRB(0 * swf, 0 * swf, 0 * swf, 0 * swf),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 42.5),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                        return const ForgotPassword();
+                                      }));
+                                    },
+                                    child: Text(
+                                      'Forgot Password?',
+                                      style: SafeGoogleFont(
+                                        'Nunito',
+                                        fontSize: 12 * aswf,
+                                        fontWeight: FontWeight.w700,
+                                        color: const Color(0xff394888),
                                       ),
                                     ),
                                   )
@@ -481,116 +522,74 @@ class SignInState extends State<SignIn> {
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              //for grouping and styling UI parts
-              // Group Container
-              padding:
-                  EdgeInsets.fromLTRB(78 * swf, 11 * swf, 91 * swf, 132 * swf),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //Forgot Password
-                  Container(
-                    margin:
-                        EdgeInsets.fromLTRB(0 * swf, 0 * swf, 0 * swf, 0 * swf),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 42.5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const ForgotPassword();
-                              }));
-                            },
-                            child: Text(
-                              'Forgot Password?',
-                              style: SafeGoogleFont(
-                                'Nunito',
-                                fontSize: 12 * aswf,
-                                fontWeight: FontWeight.w700,
-                                color: const Color(0xff394888),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    //for grouping and styling UI parts
-                    // Pet-care Image Container
-                    margin: EdgeInsets.fromLTRB(
-                        0 * swf, 20 * swf, 0 * swf, 21 * swf),
-                    width: 200 * swf,
-                    height: 228 * swf,
-                    child: Image.asset(
-                      'assets/app/images/petcare-1.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    //for grouping and styling UI parts
-                    // Don't Have Account Text Button Container
-                    margin: EdgeInsets.fromLTRB(
-                        16.3 * swf, 0 * swf, 0 * swf, 0 * swf),
-                    child: GestureDetector(
-                      onTap: widget.showSignUp,
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: SafeGoogleFont(
-                            'Nunito',
-                            fontSize: 12 * aswf,
-                            fontWeight: FontWeight.w600,
-                            height: 1.3625 * aswf / swf,
-                            color: const Color(0xff000000),
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: 'Don’t have an account?',
-                            ),
-                            TextSpan(
-                              text: ' ',
-                              style: SafeGoogleFont(
-                                'Nunito',
-                                fontSize: 12 * aswf,
-                                fontWeight: FontWeight.w600,
-                                height: 1.36 * aswf / swf,
-                                color: const Color(0xff000000),
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Sign up',
-                              style: SafeGoogleFont(
-                                'Nunito',
-                                fontSize: 12 * aswf,
-                                fontWeight: FontWeight.w800,
-                                height: 1.36 * aswf / swf,
-                                color: const Color(0xff394888),
-                              ),
-                            ),
-                          ],
                         ),
-                      ),
-                    ),
+                        Positioned(
+                          left: 78 * swf,
+                          top: 445 * swf,
+                          child: SizedBox(
+                            width: 200 * swf,
+                            height: 228 * swf,
+                            child: Image.asset(
+                              'assets/app/images/petcare-1.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 96.5 * swf,
+                          top: 707 * swf,
+                          child: GestureDetector(
+                            onTap: widget.showSignUp,
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                style: SafeGoogleFont(
+                                  'Nunito',
+                                  fontSize: 12 * aswf,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.3625 * aswf / swf,
+                                  color: const Color(0xff000000),
+                                ),
+                                children: [
+                                  const TextSpan(
+                                    text: 'Don’t have an account?',
+                                  ),
+                                  TextSpan(
+                                    text: ' ',
+                                    style: SafeGoogleFont(
+                                      'Nunito',
+                                      fontSize: 12 * aswf,
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.36 * aswf / swf,
+                                      color: const Color(0xff000000),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Sign up',
+                                    style: SafeGoogleFont(
+                                      'Nunito',
+                                      fontSize: 12 * aswf,
+                                      fontWeight: FontWeight.w800,
+                                      height: 1.36 * aswf / swf,
+                                      color: const Color(0xff394888),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                   ),
-                ],
               ),
-            ),
-          ],
-        ),
+    ],
+    ),
       ),
-    )));
+    ],
+    ),
+    ),
+    ),
+        ),
+    );
   }
 }
