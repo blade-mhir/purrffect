@@ -44,6 +44,8 @@ dependencies:
   cloud_firestore: ^4.13.1
   table_calendar: ^3.0.9
   flutter_rating_bar: ^4.0.1
+  flutter_swiper_null_safety: ^1.0.2
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
@@ -93,8 +95,19 @@ flutter:
     - assets/app/images/pettaxi.png
     - assets/app/images/dog.png
     - assets/app/images/animalshelter.png
+    - assets/app/images/reason.svg
+    - assets/app/images/telephone.svg
+    - assets/app/images/location.svg
+    # assets/app/images/img/clock.svg
+    - assets/app/images/calendar.svg
+    - assets/app/images/reason.svg
+    - assets/app/images/telephone.svg
+    - assets/app/images/location.svg
+    - assets/app/images/clock.svg
+    - assets/app/images/calendar.svg
     #Feedback Screen
     - assets/app/images/rectangle-6-bg.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
