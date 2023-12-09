@@ -13,6 +13,7 @@ Description:  This is the Vet Appointment Screen for Purrfect. This is where the
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:purrfect/toolkit.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:logger/logger.dart';
@@ -45,11 +46,11 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
     _vetAddController.text = 'Maharlika Hwy, Naga City';
   }
 
-  void navigateToAppointments(String selectedDate, String selectedTimeSlot, String vetReason, String chosenPet, String vetName, String vetNum, String vetAdd) {
+  void navigateToVetAppointments(String selectedDate, String selectedTimeSlot, String vetReason, String chosenPet, String vetName, String vetNum, String vetAdd) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Appointments(
+        builder: (context) => VetAppointments(
           selectedDate: selectedDate,
           selectedTimeSlot: selectedTimeSlot,
           vetReason: vetReason,
@@ -70,46 +71,48 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
           ),
+          title: const Text(
+            'Incomplete Details',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           content: SizedBox(
-            width: 50,
-            height: 167,
+            width: 80,
+            height: 142,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Incomplete Details',
+                  'Please select a date in the calendar, time slot, and provide a reason before booking an appointment.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Please select a date in the calendar, time slot, and provide a reason before booking an appointment.',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 15,
                   ),
                 ),
                 const SizedBox(height: 18),
-                Center(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xffffb500),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffffb500),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                      onPressed: () async {
+                        Navigator.of(context).pop();// Close the current dialog
+                      },
+                      child: const Text(
+                        'OK',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop();// Close the current dialog
-                    },
-                    child: const Text(
-                      'OK',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
+
+                  ],
                 ),
               ],
             ),
@@ -267,7 +270,7 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
                             width: double.infinity,
                             child: Container(
                               width: double.infinity,
-                              height: 665*swf,
+                              height: 645*swf,
                               decoration: const BoxDecoration (
                                 color: Color(0xFFF9F9F9),
                                 borderRadius: BorderRadius.only(
@@ -407,7 +410,7 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
                                       width: 315 * swf, // Adjust the height as needed
                                       child: TextField(
                                         controller: _vetReasonTextController, // Set the controller
-                                        maxLines: 4, // Set maxLines to null for multiline input
+                                        maxLines: 3, // Set maxLines to null for multiline input
                                         scrollPhysics: const NeverScrollableScrollPhysics(),
                                         decoration: InputDecoration(
                                           filled: true,
@@ -425,17 +428,20 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
                                             color: const Color(0xff000000),
                                           ),
                                         ),
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(108),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   // Book Appointment Button
                                   Positioned(
                                     left: 16 * swf,
-                                    top: 570 * swf,
+                                    top: 553 * swf,
                                     child: ElevatedButton(
                                       onPressed: () async {
                                         // Check if the user has selected a time slot and provided a reason
-                                        if ( _vetReasonTextController.text.isEmpty) {
+                                        if (selectedButtonIndices.every((index) => index == -1) || _vetReasonTextController.text.isEmpty) {
                                           // Show an alert dialog for incomplete details
                                           _showIncompleteDetailsDialog();
                                         } else {
@@ -475,7 +481,7 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
                                                 onAppointmentConfirmed: () {
                                                   // Handle appointment confirmation logic if needed
                                                 },
-                                                onNavigateToAppointments: navigateToAppointments,
+                                                onNavigateToAppointments: navigateToVetAppointments,
                                                 selectedDate: selectedDate,
                                                 selectedTimeSlot: selectedTimeSlot.join(', '),
                                                 reason: reason,
@@ -514,7 +520,7 @@ class _BPLVetAppointmentState extends State<BPLVetAppointment> {
                                   // Nav Bar
                                   Positioned(
                                     left: -3*swf,
-                                    top: 625*swf,
+                                    top: 600*swf,
                                     child: Container(
                                       padding: EdgeInsets.fromLTRB(54*swf, 3.64*swf, 47.07*swf, 6.36*swf),
                                       width: 362*swf,
@@ -702,19 +708,10 @@ class TimeSlotButtons extends StatefulWidget {
 }
 
 class TimeSlotButtonsState extends State<TimeSlotButtons> {
-  late List<int> selectedButtonIndices;
+  // List<int> selectedButtonIndices = [-1, -1, -1];
 
   Color defaultColor = const Color(0xfffaedcd);
   Color selectedColor = const Color(0xffffb500);
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize selectedButtonIndices with default values
-    selectedButtonIndices = List<int>.generate(widget.selectedButtonIndices.length, (index) {
-      return index == 0 ? 0 : -1; // Select 10:00 AM by default
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -755,17 +752,14 @@ class TimeSlotButtonsState extends State<TimeSlotButtons> {
       onTap: () {
         // Clear the selection for all buttons in the same column
         setState(() {
-          for (int i = 0; i < selectedButtonIndices.length; i++) {
+          for (int i = 0; i < widget.selectedButtonIndices.length; i++) {
             if (i == columnIndex) {
-              selectedButtonIndices[i] = buttonIndex;
+              widget.selectedButtonIndices[i] = buttonIndex;
             } else {
-              selectedButtonIndices[i] = -1;
+              widget.selectedButtonIndices[i] = -1;
             }
           }
         });
-
-        // Notify the parent about the selected time slot
-        widget.onTimeSlotSelected(columnIndex, buttonIndex);
       },
 
       child: Container(
@@ -773,7 +767,7 @@ class TimeSlotButtonsState extends State<TimeSlotButtons> {
         width: double.infinity,
         height: 25,
         decoration: BoxDecoration(
-          color: selectedButtonIndices[columnIndex] == buttonIndex
+          color: widget.selectedButtonIndices[columnIndex] == buttonIndex
               ? selectedColor
               : defaultColor,
           borderRadius: BorderRadius.circular(10),
@@ -1076,40 +1070,41 @@ void showAppointmentConfirmedDialog(BuildContext context) {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
             ),
+            title: const Text(
+              'Appointment Confirmed!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             content: SizedBox(
-              width: 50,
-              height: 96,
+              width: 80,
+              height: 50,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Appointment Confirmed!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 19),
-                  Center(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xffffb500),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xffffb500),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                        onPressed: () async {
+                          Navigator.of(context).pop();// Close the current dialog
+                        },
+                        child: const Text(
+                          'OK',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.of(innerContext).pop(); // Close the current dialog
-                        // Do not pop the vet appointment screen here
-                      },
-                      child: const Text(
-                        'OK',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
+
+                    ],
                   ),
                 ],
               ),
@@ -1120,103 +1115,6 @@ void showAppointmentConfirmedDialog(BuildContext context) {
     },
   );
 }
-
-
-// class TimeSlotButtonsState extends State<TimeSlotButtons> {
-//
-//   late List<int> selectedButtonIndices;
-//
-//   Color defaultColor = const Color(0xfffaedcd);
-//   Color selectedColor = const Color(0xffffb500);
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     // Initialize selectedButtonIndices with default values
-//     selectedButtonIndices = List<int>.generate(widget.selectedButtonIndices.length, (index) {
-//       return index == 0 ? 0 : -1; // Select 10:00 AM by default
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     double baseWidth = 360;
-//     double swf = MediaQuery.of(context).size.width / baseWidth;
-//
-//     return Container(
-//       width: 350 * swf,
-//       height: 61 * swf,
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(10 * swf),
-//       ),
-//       child: Row(
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           buildTimeSlotColumn(['10:00 AM', '1:00 PM'], 0),
-//           buildTimeSlotColumn(['11:00 AM', '2:00 PM'], 1),
-//           buildTimeSlotColumn(['12:00 NN', '3:00 PM'], 2),
-//         ],
-//       ),
-//     );
-//   }
-//
-//   Widget buildTimeSlotColumn(List<String> times, int columnIndex) {
-//     return Container(
-//       margin: const EdgeInsets.fromLTRB(0, 0, 31, 0),
-//       width: 90,
-//       height: double.infinity,
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: times.map((time) => buildTimeSlotButton(time, columnIndex, times.indexOf(time))).toList(),
-//       ),
-//     );
-//   }
-//
-//   Widget buildTimeSlotButton(String time, int columnIndex, int buttonIndex) {
-//     return InkWell(
-//       onTap: () {
-//         // Clear the selection for all buttons in the same column
-//         setState(() {
-//           for (int i = 0; i < widget.selectedButtonIndices.length; i++) {
-//             if (i == columnIndex) {
-//               widget.selectedButtonIndices[i] = buttonIndex;
-//             } else {
-//               widget.selectedButtonIndices[i] = -1;
-//             }
-//           }
-//         });
-//       },
-//
-//       child: Container(
-//         margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-//         width: double.infinity,
-//         height: 25,
-//         decoration: BoxDecoration(
-//           color: widget.selectedButtonIndices[columnIndex] == buttonIndex
-//               ? selectedColor
-//               : defaultColor,
-//           borderRadius: BorderRadius.circular(10),
-//         ),
-//         child: Center(
-//           child: Text(
-//             time,
-//             style: const TextStyle(
-//               fontSize: 14,
-//               fontWeight: FontWeight.w400,
-//               color: Color(0xff000000),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-
-
-
-
 
 
 

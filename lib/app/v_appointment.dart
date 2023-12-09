@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
-class Appointments extends StatefulWidget {
+class VetAppointments extends StatefulWidget {
   final String selectedDate;
   final String selectedTimeSlot;
   final String vetReason;
@@ -12,7 +12,7 @@ class Appointments extends StatefulWidget {
   final String vetNum;
   final String vetAdd;
 
-  const Appointments({
+  const VetAppointments({
     Key? key,
     required this.selectedDate,
     required this.selectedTimeSlot,
@@ -25,11 +25,11 @@ class Appointments extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<Appointments> createState() => _AppointmentsState();
+  State<VetAppointments> createState() => _VetAppointmentsState();
 }
 
 
-class _AppointmentsState extends State<Appointments> {
+class _VetAppointmentsState extends State<VetAppointments> {
 
 
   @override
